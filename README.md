@@ -1,4 +1,4 @@
-An utility to work with a local instance of zotero, using it as a persistent
+A utility to work with a local instance of zotero, using it as a persistent
 archival store.
 
 Supports search by title and tags, a simple markdown-esque file-reference
