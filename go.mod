@@ -1,4 +1,4 @@
-module store-zotero
+module zotero-fetch
 
 go 1.23.3
 

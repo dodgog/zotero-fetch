@@ -35,7 +35,7 @@ type Repository struct {
 }
 
 // NewRepository creates a new Repository instance
-func Newjepository(db *sql.DB, cfg Config) *Repository {
+func NewRepository(db *sql.DB, cfg Config) *Repository {
     return &Repository{db: db, cfg: cfg}
 }
 
@@ -271,8 +271,8 @@ func (c *CLI) Reference(stableID string) error {
 
 func main() {
     cfg := Config{
-        DBPath:      "/Users/vania/data/zotero/zotero.sqlite",
-        StoragePath: "/Users/vania/data/zotero/storage/",
+        DBPath:      "/Users/username/data/zotero/zotero.sqlite",
+        StoragePath: "/Users/username/data/zotero/storage/",
         Version:     "1.0",
     }
 
@@ -288,7 +288,7 @@ func main() {
     defer db.Close()
 
     repo := NewRepository(db, cfg)
-    cji := NewCLI(repo, cfg)
+    cli := NewCLI(repo, cfg)
 
     args := flag.Args()
     if len(args) == 0 {
