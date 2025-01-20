@@ -1,3 +1,5 @@
+# Zotero Fetch
+
 A utility to work with a local instance of zotero, using it as a persistent
 archival store.
 
@@ -20,7 +22,8 @@ Tested with Zotero 7.0.10 on macOS.
 ```bash
 # Clone the repository
 git clone [repository-url]
-cd zotero-cli
+cd zotero-fetch
+
 
 # Configure paths in main.go
 # Update these constants to match your Zotero data directory:
@@ -49,19 +52,19 @@ store-zotero -f "collaboration"
 # Search by tag
 store-zotero -t "research"
 
-# Combined search (title AND tag)
+# Combined verbose search (title AND tag)
 store-zotero -f "do" -t "tag2" -v
 
 # Open item attachment
-store-zotero open STABLEID
+store-zotero open <STABLEID>
 
 # Generate reference
-store-zotero reference STABLEID
+store-zotero reference <STABLEID>
 ```
 
 ### Example Output
 
-#### Verbose listing with combined search (-f "do" -t "tag2" -v):
+#### Verbose listing (`-v`):
 ```
 23F7YCDG        What do you mean by "E...       tag1,tag2       /Users/username/data/zotero/storage/RJMBK2ND/201701-event-driven.html
 NJYVSTNH        quick save guide                                /Users/username/data/zotero/storage/ATLTQ2LQ/quick_start_guide.html
@@ -70,7 +73,13 @@ VE7W9J39        save                                            /Users/username/
 NJGNJB8U        book-no-attachment
 ```
 
-#### Reference output:
+#### Verbose search (`-v -t tag1`):
+```
+23F7YCDG        What do you mean by "E...       tag1       /Users/username/data/zotero/storage/RJMBK2ND/201701-event-driven.html
+J3YWYCQB        Building real-time col...       tag1      /Users/username/data/zotero/storage/RNC6Y89E/real-time-collaboration-ot-vs-crdt.html
+```
+
+#### Reference output (`reference J3YWYCQB`):
 ```
 [zotero: Building real-time collaboration applications: OT vs CRDT, stableid: J3YWYCQB, tags: {tag1,tag3}, version: 1.0](/Users/username/data/zotero/storage/RNC6Y89E/real-time-collaboration-ot-vs-crdt.html)
 ```
